@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etExpr"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:cursorVisible="true"
+            android:background="@android:color/background_light"
+            android:text="@string/enter_a_mathematical_expression"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/btnAbove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/above"
+            android:onClick="aboveExpr"
+            android:ems="10"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/click_the_button_is_above_and_here_you_will_see_the_result_of_the_expression"
+            android:gravity="center_horizontal"
+            android:layout_margin="15dp"/>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/tlKbr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_1"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_2"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_3"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/c"
+                android:onClick="inputChar"/>
+        </TableRow>
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnFor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_4"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnFive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_5"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnSix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_6"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:onClick="inputChar"/>
+        </TableRow>
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnSeven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_7"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnEight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_8"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnNine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_9"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnRem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rem"
+                android:onClick="inputChar"/>
+        </TableRow>
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnZero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnLeftBracket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/left_bracket"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnRightBracket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/right_bracket"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnMult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mult"
+                android:onClick="inputChar"/>
+        </TableRow>
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnPrev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_media_previous"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnBrsps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_input_delete"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_media_next"
+                android:onClick="inputChar"/>
+            <Button
+                android:id="@+id/btnDiv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/div"
+                android:onClick="inputChar"/>
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>
