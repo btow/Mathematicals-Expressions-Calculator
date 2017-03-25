@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Mathematicals-Expressions-Calculator</string>
-    <string name="above">=</string>
-    <string name="click_the_button_is_above_and_here_you_will_see_the_result_of_the_expression">
-        Click the button is above and here you will see the result of the expression
+    <string name="result">=</string>
+    <string name="click_the_button_and_here_you_will_see_the_result_of_the_expression">
+        Click the button and here you will see the result of the expression
     </string>
     <string name="enter_a_mathematical_expression">Enter a mathematical expression</string>
     <string name="_1">1</string>
@@ -22,5 +22,7 @@
     <string name="right_bracket">)</string>
     <string name="mult">*</string>
     <string name="div">/</string>
+    <string name="prev"></string>
     <string name="brsps"></string>
+    <string name="next"></string>
 </resources>

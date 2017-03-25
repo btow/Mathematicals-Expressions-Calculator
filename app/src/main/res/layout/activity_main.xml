@@ -27,8 +27,8 @@
             android:id="@+id/btnAbove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/above"
-            android:onClick="aboveExpr"
+            android:text="@string/result"
+            android:onClick="resultExpr"
             android:ems="10"/>
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="@string/click_the_button_is_above_and_here_you_will_see_the_result_of_the_expression"
+            android:text="@string/click_the_button_and_here_you_will_see_the_result_of_the_expression"
             android:gravity="center_horizontal"
             android:layout_margin="15dp"/>
 
@@ -168,7 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/ic_media_previous"
-                android:onClick="inputChar"/>
+                android:onClick="inputChar" />
             <Button
                 android:id="@+id/btnBrsps"
                 android:layout_width="wrap_content"

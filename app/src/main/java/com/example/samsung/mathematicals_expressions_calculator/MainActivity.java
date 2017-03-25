@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
-
 import static com.example.samsung.mathematicals_expressions_calculator.RPN.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,13 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         etExpr = (EditText) findViewById(R.id.etExpr);
         etExpr.setRawInputType(InputType.TYPE_NULL);
-        etExpr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setColorEtExpr();
-                ((EditText) v).setCursorVisible(true);
-            }
-        });
+
         btnAbove = (Button) findViewById(R.id.btnAbove);
         tvResult = (TextView) findViewById(R.id.tvResult);
 
@@ -75,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
             etExpr.setTextColor(getResources().getColor(R.color.colorPlainText));
             etExpr.setText("");
             cursorsPosition = 0;
+            etExpr.setCursorVisible(false);
         } else {
-            etExpr.setSelection(cursorsPosition, 1);
+            etExpr.setSelection(cursorsPosition);
         }
 
     }
@@ -87,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
      * The result is written in the "tvResult".
      * @param view - button "above"
      */
-    public void aboveExpr(View view) {
+    public void resultExpr(View view) {
         try {
             tvResult.setText(eval(etExpr.getText().toString()));
         } catch (ExpressionCharException e) {
@@ -161,11 +154,13 @@ public class MainActivity extends AppCompatActivity {
                 if (cursorsPosition != 0) {
                     cursorsPosition--;
                 }
+                etExpr.setSelection(cursorsPosition);
                 break;
             case R.id.btnNext :
                 if (cursorsPosition != (etExpr.getText().toString().length()) - 1) {
                     cursorsPosition++;
                 }
+                etExpr.setSelection(cursorsPosition);
                 break;
             case R.id.btnBrsps :
                 if (cursorsPosition != 0) {
@@ -173,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-        etExpr.setSelection(cursorsPosition, 1);
+        etExpr.setSelection(cursorsPosition);
         etExpr.setCursorVisible(true);
     }
 
@@ -184,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         etExpr.setText(getResources().getString(R.string.enter_a_mathematical_expression));
         etExpr.setTextColor(getResources().getColor(R.color.colorAccent));
         cursorsPosition = 0;
+        tvResult.setText(getResources().getString(R.string.click_the_button_and_here_you_will_see_the_result_of_the_expression));
     }
 
     /**
@@ -192,16 +188,16 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setEtExpr(int btnString) {
         String s0 = etExpr.getText().toString(),
-                /**Если нажата любая кнопка, кроме "btnBrsps", то вставляем символ с этой кнопки
-                 * в позицию курсора со сдвигом остальной строки влево
-                  */
-                addChar = btnString != R.string.brsps ? getResources().getString(btnString).toString() : "";
+        /**Если нажата любая кнопка, кроме "btnBrsps", "btnPrev" или "btnNext",
+         * то вставляем символ с этой кнопки в позицию курсора со сдвигом остальной строки вправо
+          */
+            addChar = btnString != R.string.brsps ? getResources().getString(btnString).toString(): "";
         char[] allChars = null, prefChars = null, sufChars = null;
         Index position = new Index(cursorsPosition);
         //Если нажата кнопка "btnBrsps", то включаем режим замены символа строки в позиции курсора;
         etExpr.setText(insertSubString(s0,addChar,position,btnString == R.string.brsps));
         cursorsPosition = position.getIndex();
-        cursorsPosition += addChar.length();
+        etExpr.setSelection(cursorsPosition);
     }
 
 }

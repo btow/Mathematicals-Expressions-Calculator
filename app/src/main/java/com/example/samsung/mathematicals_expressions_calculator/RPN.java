@@ -235,28 +235,28 @@ class RPN {
 
         String newString = "";
         char[] allChars = null, prefChars = null, sufChars = null;
+        int oldIndex = index.getIndex(), subStringLength = subString.length();
 
         if (string.length() > 0) {
             allChars = string.toCharArray();
-            prefChars = Arrays.copyOfRange(allChars, 0, index.getIndex());
+            prefChars = Arrays.copyOfRange(allChars, 0, oldIndex);
             newString += prefChars != null ? String.copyValueOf(prefChars) : "";
 
             if (replace) {
-                index.addOnIndex();
-                sufChars = index.getIndex() < allChars.length ?
-                        Arrays.copyOfRange(allChars, index.getIndex(), allChars.length) : null;
+                sufChars = oldIndex + 1 < allChars.length ?
+                        Arrays.copyOfRange(allChars, oldIndex + 1, allChars.length) : null;
+                index.setIndex(oldIndex + subStringLength);
             } else {
-                sufChars = index.getIndex() < allChars.length ?
-                        Arrays.copyOfRange(allChars, index.getIndex(), allChars.length) : null;
+                sufChars = Arrays.copyOfRange(allChars,oldIndex,allChars.length);
+                index.setIndex(oldIndex + subStringLength);
             }
+
+        } else {
+            index.setIndex(subStringLength);
         }
-        
+
         newString += subString;
-
-        index.setIndex(index.getIndex() + (subString.length() == 0 ? 0 : subString.length() - 1));
-
         newString += sufChars != null ? String.copyValueOf(sufChars) : "";
-        if (replace && index.getIndex() > 0) index.remOnIndex();
         return newString;
     }
 

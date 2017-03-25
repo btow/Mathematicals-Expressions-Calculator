@@ -111,12 +111,10 @@ public class ExampleUnitTest {
          *              x,3 - axpected position.
          */
         String[][] inputedStrings = {
-                {"1234+567", "+", "+234+567", "0"}, //0 - replace true
-                {"123-456", "-", "1-23-456", "1"},  //1 - replace false
+                {"1234+567", "+", "+234+567", "1"}, //0 - replace true
+                {"123-456", "-", "1-23-456", "2"},  //1 - replace false
                 {"123*456", "", "12*456", "2"},     //2 - replace true
-                {"234/567", "1*", "2341*/567", "4"},//3 - replace false
-                {"3456(789", "+", "3456+789", "4"}, //4 - replace true
-                {"456)7890", "0", "456)70890", "5"} //5 - replace false
+                {"234/567", "1*", "2341*/567", "5"}//3 - replace false
         };
 
         for (int index = 0; index < inputedStrings.length; index++) {
